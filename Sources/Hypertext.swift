@@ -23,7 +23,7 @@ public extension CustomStringConvertible {
     }
 }
 
-public extension Renderable {
+public extension tag {
     var description: String {
         return render()
     }
