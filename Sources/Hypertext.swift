@@ -59,7 +59,11 @@ enum TagFormatter {
     }
     
     static private func delimited(_ tag: String, delimiter: String) -> String {
+        #if swift(>=5)
+        let range = NSMakeRange(0, tag.count)
+        #else
         let range = NSMakeRange(0, tag.characters.count)
+        #endif
         let pattern = "(.)(?=[A-Z])"
         #if !os(Linux)
         let regex = try! NSRegularExpression(pattern: pattern, options: [])
